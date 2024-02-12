@@ -9,7 +9,16 @@
             "default",
             "!{projectRoot}/tsconfig.spec.json",
             "!{projectRoot}/**/*.spec.[jt]s",
-            "!{projectRoot}/karma.conf.js"
+            "!{projectRoot}/karma.conf.js",
+            "!{projectRoot}/.eslintrc.json",
+            "!{projectRoot}/eslint.config.js",
+            "!{projectRoot}/**/?(*.)+(spec|test).[jt]s?(x)?(.snap)",
+            "!{projectRoot}/jest.config.[jt]s",
+            "!{projectRoot}/src/test-setup.[jt]s",
+            "!{projectRoot}/test-setup.[jt]s",
+            "!{projectRoot}/cypress/**/*",
+            "!{projectRoot}/**/*.cy.[jt]s?(x)",
+            "!{projectRoot}/cypress.config.[jt]s"
         ]
     },
     "targetDefaults": {
@@ -21,7 +30,41 @@
         "test": {
             "inputs": ["default", "^production", "{workspaceRoot}/karma.conf.js"],
             "cache": true
+        },
+        "@angular-devkit/build-angular:application": {
+            "cache": true,
+            "dependsOn": ["^build"],
+            "inputs": ["production", "^production"]
         }
     },
-    "nxCloudAccessToken": "NmRjZTY5OTMtNjg5OS00ZDU4LWJkYmQtMzUwNTg1NDAyNjI1fHJlYWQtd3JpdGU="
+    "nxCloudAccessToken": "NmRjZTY5OTMtNjg5OS00ZDU4LWJkYmQtMzUwNTg1NDAyNjI1fHJlYWQtd3JpdGU=",
+    "plugins": [
+        {
+            "plugin": "@nx/eslint/plugin",
+            "options": {
+                "targetName": "lint"
+            }
+        },
+        {
+            "plugin": "@nx/jest/plugin",
+            "options": {
+                "targetName": "test"
+            }
+        },
+        {
+            "plugin": "@nx/cypress/plugin",
+            "options": {
+                "targetName": "e2e",
+                "componentTestingTargetName": "component-test"
+            }
+        }
+    ],
+    "generators": {
+        "@nx/angular:application": {
+            "e2eTestRunner": "cypress",
+            "linter": "eslint",
+            "style": "scss",
+            "unitTestRunner": "jest"
+        }
+    }
 }
