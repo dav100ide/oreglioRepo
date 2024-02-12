@@ -1,0 +1,9 @@
+.wrapper-big {
+    width: min(calc(100vw - var(--spacer-6) * 2), 90rem);
+    margin-inline: auto;
+}
+
+.wrapper {
+    max-width: 68rem;
+    margin-inline: auto;
+}

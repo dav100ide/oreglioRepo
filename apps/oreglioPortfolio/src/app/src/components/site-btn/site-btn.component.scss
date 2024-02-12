@@ -1,0 +1,58 @@
+@use 'abstracts/variables' as v;
+
+.btn {
+    border-radius: var(--spacer-1);
+    border-width: 1px;
+    border-style: solid;
+    transition: var(--general-transition);
+    transition-property: background-color box-shadow;
+
+    &.primary {
+        background-color: var(--bs-accent);
+        position: relative;
+        border-color: transparent;
+        .gradient-overlay {
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            opacity: 0;
+            transition: var(--general-transition);
+            transition-property: opacity, background-image;
+        }
+
+        &:not(&:disabled):hover {
+            border-top-color: rgba(v.$accent-color-400, 0.63);
+            .gradient-overlay {
+                box-shadow: 0px 4px 24px 0px rgba(v.$accent-color-300, 0.36);
+
+                opacity: 1;
+                background: radial-gradient(
+                        77.69% 100% at 50.51% 0%,
+                        rgba(v.$accent-color-400, 0.5) 28.5%,
+                        rgba(v.$accent-color-300, 0.5) 100%
+                    ),
+                    var(--bs-accent, #de0030);
+            }
+        }
+    }
+
+    &.secondary {
+        border-color: var(--bs-gray-200);
+        background-color: var(--bs-gray-700);
+        backdrop-filter: blur(4px);
+        &:not(&:disabled):hover {
+            background-color: var(--bs-gray-750);
+            box-shadow: 0px 2px 19px 0px var(--bs-gray-500);
+        }
+    }
+
+    &.transparent {
+        border-color: transparent;
+        background-color: transparent;
+    }
+
+    &:is(.primary, .secondary):disabled {
+        background-color: var(--bs-gray-600);
+        color: var(--bs-gray-400);
+    }
+}

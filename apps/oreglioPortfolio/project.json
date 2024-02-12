@@ -1,0 +1,90 @@
+{
+    "name": "oreglioPortfolio",
+    "$schema": "../../node_modules/nx/schemas/project-schema.json",
+    "i18n": {
+        "sourceLocale": "en-US",
+        "locales": {
+            "en": "src/assets/i18n/en.json",
+            "it": "src/assets/i18n/it.json"
+        }
+    },
+    "projectType": "application",
+    "generators": {
+        "@schematics/angular:component": {
+            "style": "scss"
+        }
+    },
+    "sourceRoot": "apps/oreglioPortfolio/src",
+    "prefix": "app",
+    "targets": {
+        "build": {
+            "executor": "@angular-devkit/build-angular:application",
+            "options": {
+                "outputPath": "dist/apps/oreglioPortfolio",
+                "index": "apps/oreglioPortfolio/src/index.html",
+                "browser": "apps/oreglioPortfolio/src/main.ts",
+                "polyfills": ["zone.js"],
+                "tsConfig": "apps/oreglioPortfolio/tsconfig.app.json",
+                "inlineStyleLanguage": "scss",
+                "assets": ["apps/oreglioPortfolio/src/favicon.ico", "apps/oreglioPortfolio/src/assets"],
+                "styles": ["apps/oreglioPortfolio/src/styles.scss"],
+                "stylePreprocessorOptions": {
+                    "includePaths": ["apps/oreglioPortfolio/src/styles"]
+                },
+                "scripts": []
+            },
+            "configurations": {
+                "production": {
+                    "budgets": [
+                        {
+                            "type": "initial",
+                            "maximumWarning": "500kb",
+                            "maximumError": "1mb"
+                        },
+                        {
+                            "type": "anyComponentStyle",
+                            "maximumWarning": "2kb",
+                            "maximumError": "4kb"
+                        }
+                    ],
+                    "outputHashing": "all"
+                },
+                "development": {
+                    "optimization": false,
+                    "extractLicenses": false,
+                    "sourceMap": true
+                }
+            },
+            "defaultConfiguration": "production"
+        },
+        "serve": {
+            "executor": "@angular-devkit/build-angular:dev-server",
+            "configurations": {
+                "production": {
+                    "buildTarget": "oreglioPortfolio:build:production"
+                },
+                "development": {
+                    "buildTarget": "oreglioPortfolio:build:development"
+                }
+            },
+            "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+            "executor": "@angular-devkit/build-angular:extract-i18n",
+            "options": {
+                "buildTarget": "oreglioPortfolio:build"
+            }
+        },
+        "test": {
+            "executor": "@angular-devkit/build-angular:karma",
+            "options": {
+                "polyfills": ["zone.js", "zone.js/testing"],
+                "tsConfig": "apps/oreglioPortfolio/tsconfig.spec.json",
+                "inlineStyleLanguage": "scss",
+                "assets": ["apps/oreglioPortfolio/src/favicon.ico", "apps/oreglioPortfolio/src/assets"],
+                "styles": ["apps/oreglioPortfolio/src/styles.scss"],
+                "scripts": []
+            }
+        }
+    }
+}

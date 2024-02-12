@@ -1,0 +1,25 @@
+@each $key, $value in $grays {
+    .gray-#{$key} {
+        color: $value !important;
+    }
+
+    .bg-gray-#{$key} {
+        background-color: $value !important;
+    }
+
+    .border-gray-#{$key} {
+        //£ da usare in combinazione con le altre classi util di bs
+        //esempio: "border-top border-2 border-gray-200"
+        --bs-border-color: #{$value} !important;
+        border-color: $value !important;
+    }
+}
+
+.flex-center {
+    @include flex-center();
+}
+
+.reset-list {
+    list-style: none !important;
+    padding-inline-start: 0;
+}

@@ -1,0 +1,14 @@
+@use 'abstracts/mixins' as m;
+.card {
+    border: 2px solid var(--bs-gray-500);
+    box-shadow: 0px 24px 70px -1px var(--bs-primary-200);
+    background: radial-gradient(100% 100% at 50% 100%, var(--bs-primary-200) 0%, var(--bs-primary) 86%);
+    .photo {
+        @include m.circle-img(8.5rem, cover);
+    }
+    .info {
+        ul {
+            list-style: square;
+        }
+    }
+}

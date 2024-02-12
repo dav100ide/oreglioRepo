@@ -1,0 +1,83 @@
+@if (btnConfig.href || btnConfig.routerLink) {
+    @if (btnConfig.href) {
+        <a
+            [attr.href]="btnConfig.href"
+            class="btn py-2"
+            [ngClass]="{
+                primary: btnConfig.themeColor === 'primary',
+                secondary: btnConfig.themeColor === 'secondary',
+                transparent: btnConfig.themeColor === 'transparent',
+                'px-2': onlyIcon,
+                'px-3': !onlyIcon,
+                disabled: btnConfig.disabled === undefined ? false : btnConfig.disabled
+            }">
+            <ng-container *ngTemplateOutlet="labelAndIcon" />
+        </a>
+    } @else {
+        <a
+            [routerLink]="btnConfig.routerLink"
+            class="btn py-2"
+            [ngClass]="{
+                primary: btnConfig.themeColor === 'primary',
+                secondary: btnConfig.themeColor === 'secondary',
+                transparent: btnConfig.themeColor === 'transparent',
+                'px-2': onlyIcon,
+                'px-3': !onlyIcon,
+                disabled: btnConfig.disabled === undefined ? false : btnConfig.disabled
+            }">
+            <ng-container *ngTemplateOutlet="labelAndIcon" />
+        </a>
+    }
+} @else {
+    <button
+        [disabled]="btnConfig.disabled === undefined ? false : btnConfig.disabled"
+        class="btn py-2"
+        [ngClass]="{
+            primary: btnConfig.themeColor === 'primary',
+            secondary: btnConfig.themeColor === 'secondary',
+            transparent: btnConfig.themeColor === 'transparent',
+            'px-2': onlyIcon,
+            'px-3': !onlyIcon
+        }">
+        <!-- <span *ngIf="btnConfig.themeColor === 'primary'" class="gradient-overlay flex-center gap-2 align-items-center">
+            {{ btnConfig.label ?? '' | translate }}
+            <mat-icon
+                *ngIf="btnConfig.iconName"
+                [fontIcon]="btnConfig.iconName"
+                [ngClass]="{ 'order-first': btnConfig.iconPosition === 'start' }" />
+        </span>
+        <div class="d-flex gap-2 align-items-center">
+            {{ btnConfig.label ?? '' | translate }}
+            <mat-icon
+                *ngIf="btnConfig.iconName"
+                [fontIcon]="btnConfig.iconName"
+                [ngClass]="{ 'order-first': btnConfig.iconPosition === 'start' }" />
+        </div> -->
+        <ng-container *ngTemplateOutlet="labelAndIcon" />
+    </button>
+}
+
+<ng-template #labelAndIcon>
+    <span *ngIf="btnConfig.themeColor === 'primary'" class="gradient-overlay flex-center gap-2 align-items-center">
+        {{ btnConfig.label ?? '' | translate }}
+        <mat-icon
+            *ngIf="btnConfig.iconName"
+            [fontIcon]="btnConfig.iconName"
+            [ngClass]="{ 'order-first': btnConfig.iconPosition === 'start' }" />
+        <mat-icon
+            *ngIf="btnConfig.svgIcon"
+            [svgIcon]="btnConfig.svgIcon"
+            [ngClass]="{ 'order-first': btnConfig.iconPosition === 'start' }" />
+    </span>
+    <div class="d-flex gap-2 align-items-center">
+        {{ btnConfig.label ?? '' | translate }}
+        <mat-icon
+            *ngIf="btnConfig.iconName"
+            [fontIcon]="btnConfig.iconName"
+            [ngClass]="{ 'order-first': btnConfig.iconPosition === 'start' }" />
+        <mat-icon
+            *ngIf="btnConfig.svgIcon"
+            [svgIcon]="btnConfig.svgIcon"
+            [ngClass]="{ 'order-first': btnConfig.iconPosition === 'start' }" />
+    </div>
+</ng-template>

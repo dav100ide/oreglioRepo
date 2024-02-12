@@ -1,0 +1,30 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+}
+
+button {
+    all: unset;
+    cursor: pointer;
+    &:disabled {
+        cursor: not-allowed;
+        // pointer-events: none;
+    }
+}
+
+a {
+    display: inline-block;
+    color: inherit;
+    cursor: pointer;
+    text-decoration: none;
+    &.disabled {
+        cursor: not-allowed;
+        // pointer-events: none;
+    }
+}
+
+:is(p, ul, ol, dl):last-child {
+    margin-bottom: 0;
+}
