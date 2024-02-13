@@ -19,7 +19,10 @@
         "module": "ES2022",
         "useDefineForClassFields": false,
         "lib": ["ES2022", "dom"],
-        "paths": {},
+        "paths": {
+            "base": ["libs/base/src/index.ts"],
+            "utility": ["libs/utility/src/index.ts"]
+        },
         "baseUrl": ".",
         "rootDir": "."
     },
