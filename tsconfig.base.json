@@ -21,6 +21,7 @@
         "lib": ["ES2022", "dom"],
         "paths": {
             "base": ["libs/base/src/index.ts"],
+            "ore-portfolio": ["libs/ore-portfolio/src/index.ts"],
             "utility": ["libs/utility/src/index.ts"]
         },
         "baseUrl": ".",

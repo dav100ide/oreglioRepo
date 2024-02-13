@@ -1,0 +1,9 @@
+{
+    "name": "ore-portfolio",
+    "$schema": "../../node_modules/nx/schemas/project-schema.json",
+    "sourceRoot": "libs/ore-portfolio/src",
+    "prefix": "lib",
+    "tags": [],
+    "projectType": "library",
+    "targets": {}
+}
