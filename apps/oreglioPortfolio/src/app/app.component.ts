@@ -1,12 +1,11 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { TranslatorService } from '../features/translator/translator.service';
 import { HeaderComponent } from './src/components/header/header.component';
 import { TranslatorModule } from '../features/translator/translator.module';
 import { FooterComponent } from './src/components/footer/footer.component';
-import { IconsService } from '../features/icons/icons.service';
-
+import { IconsService } from '@dav100ide/utility';
 @Component({
     selector: 'app-root',
     standalone: true,

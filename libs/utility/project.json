@@ -2,7 +2,7 @@
     "name": "utility",
     "$schema": "../../node_modules/nx/schemas/project-schema.json",
     "sourceRoot": "libs/utility/src",
-    "prefix": "lib",
+    "prefix": "dav100ide",
     "tags": [],
     "projectType": "library",
     "targets": {}

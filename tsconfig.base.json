@@ -20,9 +20,9 @@
         "useDefineForClassFields": false,
         "lib": ["ES2022", "dom"],
         "paths": {
-            "base": ["libs/base/src/index.ts"],
-            "ore-portfolio": ["libs/ore-portfolio/src/index.ts"],
-            "utility": ["libs/utility/src/index.ts"]
+            "@dav100ide/base": ["libs/base/src/index.ts"],
+            "@dav100ide/ore-portfolio": ["libs/ore-portfolio/src/index.ts"],
+            "@dav100ide/utility": ["libs/utility/src/index.ts"]
         },
         "baseUrl": ".",
         "rootDir": "."
